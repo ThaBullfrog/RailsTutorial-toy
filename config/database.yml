@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  host: 127.0.0.1
+  database: toy_app_production
+  username: deploy
+  password: <% ENV['TOY_APP_DATABASE_PASSWORD'] %>
+  encoding: unicode
+  pool: 5
